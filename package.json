@@ -34,7 +34,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn build && firebase deploy"
+      "pre-push": "yarn build"
     }
   }
 }

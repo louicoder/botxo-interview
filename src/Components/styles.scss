@@ -123,6 +123,9 @@
   max-height: 200px;
   overflow-y: scroll;
   width: 100%;
+  // border: 1px solid black;
+  box-sizing: border-box;
+  // scrollbar-width: 10px;
 
   ul {
     li {
@@ -145,7 +148,7 @@
 .single-name {
   display: flex;
   // border: 1px solid black;
-  align-items: center;
+  // align-items: center;
 
   &:hover {
     background-color: rgba(0, 0, 0, .105);

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeGenericUserAction, removeSpecificUserAction } from '../Store/ActionCreators';
-// import USERS from '../Fixture';
 
 export default function AllUsers ({ users, header, genericOrSpecific }) {
   const dispatch = useDispatch();
   const confirmString = (name) => `Are you sure you want to delete ${name} from the`;
 
+  // remove user from either specific or generic list
   const removeUserHandler = (name) => {
     switch (genericOrSpecific) {
       case 'generic':
@@ -26,11 +26,11 @@ export default function AllUsers ({ users, header, genericOrSpecific }) {
       <h3>{header}</h3>
       <div className="all-users-list-container">
         {users && (
-          <ul>
+          <ul style={{}}>
             {users.map(({ name, age, fromGeneric }, index) => (
               <div key={index} className={`single-name ${fromGeneric ? 'disabled-name' : ''}`}>
                 <li disabled={fromGeneric ? true : false}>
-                  {name} ({age})
+                  {index + 1}. {name} ({age})
                   <span onClick={() => (fromGeneric ? null : removeUserHandler(name))}>
                     {' '}
                     <svg style={{ width: '24px', height: '24px' }} viewBox="0 0 24 24">

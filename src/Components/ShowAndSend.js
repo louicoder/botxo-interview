@@ -1,9 +1,11 @@
 import React from 'react';
+import AllUsers from './AllUsers';
 
 export default function ShowAndSend () {
   return (
     <div>
-      <h1>Show and send</h1>
+      <AllUsers header="All users ordered by name" />
+      <AllUsers header="All users ordered by age" />
     </div>
   );
 }

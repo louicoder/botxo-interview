@@ -4,20 +4,29 @@ import Fixtures from '../Fixture';
 // get all users.
 export const getAllUsersRequest = async () => {
   // try {
-  //   var config = {
-  //     headers: { 'Access-Control-Allow-Origin': '*', crossDomain: true }
-  //   };
-  //   const response = await Axios.get('https://webhook.site/197824f4-45a1-4395-8179-f815b2850f27', config);
+  //   const response = await Axios.get();
   //   return response;
   // } catch (error) {
   //   console.log('ERor', error.response);
   //   return error;
   // }
-  return Promise.resolve({ data: Fixtures });
+  await fetch('https://webhook.site/197824f4-45a1-4395-8179-f815b2850f27', {
+    mode: 'no-cors',
+    method: 'GET',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  })
+    .then((response) => {
+      console.log('REsponse from fetch', JSON.stringify(response));
+      return response.json();
+    })
+    .catch((error) => error);
+  // return Promise.resolve({ data: Fixtures });
 };
 
 // send generic users list
-export const sendGenericUsersListRequest = async (list) => {
+export const sendDataSortedByName = async (list) => {
   try {
     const response = await Axios.post(list);
     return response;
@@ -27,7 +36,7 @@ export const sendGenericUsersListRequest = async (list) => {
 };
 
 // send specific users list
-export const sendSpecificUsersListRequest = async (list) => {
+export const sendDataSortedByAge = async (list) => {
   try {
     const response = await Axios.post(list);
     return response;

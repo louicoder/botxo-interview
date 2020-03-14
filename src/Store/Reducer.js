@@ -52,19 +52,19 @@ export default (state = initialState, { type, payload, error, name, age }) => {
       };
 
     // send generic list
-    case ACTIONS.SEND_GENERIC_USERS_ACTION:
+    case ACTIONS.SEND_DATA_SORTED_BY_NAME_ACTION:
       return { ...state, loading: true };
-    case ACTIONS.SEND_GENERIC_USERS_SUCCESSFUL:
+    case ACTIONS.SEND_DATA_SORTED_BY_NAME_SUCCESSFUL:
       return { ...state, loading: false };
-    case ACTIONS.SEND_GENERIC_USERS_FAILED:
+    case ACTIONS.SEND_DATA_SORTED_BY_NAME_FAILED:
       return { ...state, loading: false };
 
     // send specific list
-    case ACTIONS.SEND_SPECIFIC_USERS_ACTION:
+    case ACTIONS.SEND_DATA_SORTED_BY_AGE_ACTION:
       return { ...state, loading: true };
-    case ACTIONS.SEND_SPECIFIC_USERS_SUCCESSFUL:
+    case ACTIONS.SEND_DATA_SORTED_BY_AGE_SUCCESSFUL:
       return { ...state, loading: false };
-    case ACTIONS.SEND_SPECIFIC_USERS_FAILED:
+    case ACTIONS.SEND_DATA_SORTED_BY_AGE_FAILED:
       return { ...state, loading: false };
 
     default:

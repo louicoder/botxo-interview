@@ -42,31 +42,31 @@ export const removeSpecificUserAction = (name) => ({
 });
 
 // send generic list of users
-export const sendGenericUsers = () => ({
-  type: ACTIONS.SEND_GENERIC_USERS_ACTION
+export const sendDataSortedByNameAction = () => ({
+  type: ACTIONS.SEND_DATA_SORTED_BY_NAME_ACTION
 });
 
-export const sendGenericUsersSuccessful = (payload) => ({
-  type: ACTIONS.SEND_GENERIC_USERS_SUCCESSFUL,
+export const sendDataSortedByNameSuccessful = (payload) => ({
+  type: ACTIONS.SEND_DATA_SORTED_BY_NAME_SUCCESSFUL,
   payload
 });
 
-export const sendGenericUsersFailed = (error) => ({
-  type: ACTIONS.SEND_GENERIC_USERS_FAILED,
+export const sendDataSortedByNameFailed = (error) => ({
+  type: ACTIONS.SEND_DATA_SORTED_BY_NAME_FAILED,
   error
 });
 
 // send specific list of users
-export const sendSpecificUsers = () => ({
-  type: ACTIONS.SEND_GENERIC_USERS_ACTION
+export const sendDataSortedByAgeAction = () => ({
+  type: ACTIONS.SEND_DATA_SORTED_BY_AGE_ACTION
 });
 
-export const sendSpecificUsersSuccessful = (payload) => ({
-  type: ACTIONS.SEND_GENERIC_USERS_SUCCESSFUL,
+export const sendDataSortedByAgeSuccessful = (payload) => ({
+  type: ACTIONS.SEND_DATA_SORTED_BY_AGE_SUCCESSFUL,
   payload
 });
 
-export const sendSpecificUsersFailed = (error) => ({
-  type: ACTIONS.SEND_GENERIC_USERS_FAILED,
+export const sendDataSortedByAgeFailed = (error) => ({
+  type: ACTIONS.SEND_DATA_SORTED_BY_AGE_FAILED,
   error
 });

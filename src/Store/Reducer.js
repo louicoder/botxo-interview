@@ -34,7 +34,7 @@ export default (state = initialState, { type, payload, error, name, age }) => {
 
     // add user to generic list
     case ACTIONS.ADD_GENERIC_USER_ACTION:
-      let newSpecific = [ ...state.specificUsers, { name, age } ];
+      let newSpecific = [ ...state.specificUsers, { name, age, fromGeneric: true } ];
       newSpecific = newSpecific.sort((a, b) => a.age - b.age);
       return {
         ...state,

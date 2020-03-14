@@ -27,11 +27,11 @@ export default function AllUsers ({ users, header, genericOrSpecific }) {
       <div className="all-users-list-container">
         {users && (
           <ul>
-            {users.map(({ name, age }, index) => (
-              <div className="single-name" key={index}>
-                <li>
+            {users.map(({ name, age, fromGeneric }, index) => (
+              <div key={index} className={`single-name ${fromGeneric ? 'disabled-name' : ''}`}>
+                <li disabled={fromGeneric ? true : false}>
                   {name} ({age})
-                  <span onClick={() => removeUserHandler(name)}>
+                  <span onClick={() => (fromGeneric ? null : removeUserHandler(name))}>
                     {' '}
                     <svg style={{ width: '24px', height: '24px' }} viewBox="0 0 24 24">
                       <path

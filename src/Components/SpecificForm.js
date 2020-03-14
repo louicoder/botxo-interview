@@ -13,6 +13,8 @@ export default function GenericForm () {
     if (!name || !age) return alert(`${!name ? 'name' : 'age'} is missing`);
     // console.log('name and age', name, age);
     dispatch(addSpecificUser(name, age));
+    setAge(0);
+    setName('');
   };
   return (
     <div className="generic-form-container">

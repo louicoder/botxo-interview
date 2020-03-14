@@ -39,11 +39,17 @@ export default (state = initialState, { type, payload, error, name, age }) => {
     // add user to generic list
     case ACTIONS.ADD_GENERIC_USER_ACTION:
       let newSpecific = [ ...state.specificUsers, { name, age, fromGeneric: true } ];
+      let _newGeneric = [ ...state.genericUsers, { name, age, fromGeneric: true } ];
       newSpecific = newSpecific.sort((a, b) => a.age - b.age);
+      _newGeneric = _newGeneric.sort((a, b) => {
+        const _aname = a.name.toUpperCase();
+        const _bname = b.name.toUpperCase();
+        return _aname < _bname ? -1 : _aname > _bname ? 1 : 0;
+      });
       return {
         ...state,
         specificUsers: newSpecific,
-        genericUsers: [ ...state.genericUsers, { name, age } ]
+        genericUsers: _newGeneric
       };
 
     // add user to specific list

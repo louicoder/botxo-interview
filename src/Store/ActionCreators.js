@@ -16,8 +16,10 @@ export const getAllUsersFailed = (error) => ({
 });
 
 // add user to generic list
-export const addGenericUser = () => ({
-  type: ACTIONS.ADD_GENERIC_USER_ACTION
+export const addGenericUser = (name, age) => ({
+  type: ACTIONS.ADD_GENERIC_USER_ACTION,
+  name,
+  age
 });
 
 export const addGenericUserSuccessful = (payload) => ({
@@ -31,8 +33,10 @@ export const addGenericUserFailed = (error) => ({
 });
 
 // add user to specific list
-export const addSpecificUser = () => ({
-  type: ACTIONS.ADD_SPECIFIC_USER_ACTION
+export const addSpecificUser = (name, age) => ({
+  type: ACTIONS.ADD_SPECIFIC_USER_ACTION,
+  name,
+  age
 });
 
 export const addSpecificUserSuccessful = (payload) => ({

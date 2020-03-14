@@ -10,7 +10,7 @@ function* watchGetAllUsers () {
 function* getAllUsers () {
   try {
     const response = yield call(() => REQUESTS.getAllUsersRequest());
-    console.log('RESPONSE', response);
+    if (response.data) yield put(ACTION_CREATORS.getAllUsersSuccessful(response.data));
   } catch (error) {
     yield put(ACTION_CREATORS.getAllUsersFailed({}));
   }

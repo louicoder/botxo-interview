@@ -2,17 +2,17 @@ import React from 'react';
 import './styles.scss';
 // import Trash from '../Assets/Trash.svg';
 
-export default function UserComponent ({ onChange, changeAge }) {
+export default function UserComponent ({ changeName, changeAge }) {
   return (
     <div className="users-container">
       <div className="name-and-age">
         <div>
           <p>Name</p>
-          <input type="text" onChange={(e) => onChange(e)} />
+          <input type="text" onChange={(e) => changeName(e)} className="input-field" />
         </div>
         <div>
           <p>Age</p>
-          <input type="number" onChange={(e) => changeAge(e)} />
+          <input type="number" onChange={(e) => changeAge(e)} className="input-age" />
         </div>
       </div>
       <div>

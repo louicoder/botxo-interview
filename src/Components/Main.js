@@ -10,12 +10,15 @@ import { connect, useSelector, useDispatch } from 'react-redux';
 export default () => {
   const [ mode, setMode ] = useState('ge');
   const dispatch = useDispatch();
+  const allUsers = useSelector((state) => state.users);
 
   useEffect(() => {
     dispatch(ACTION_CREATORS.getAllUsersAction());
   }, []);
 
   const switchViewHandler = (mode) => setMode(mode);
+
+  console.log('ALL USERS', allUsers);
 
   return (
     <div className="main-container">

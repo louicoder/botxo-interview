@@ -23,7 +23,7 @@ export default function SecondaryButtons ({ switchView, checked }) {
         />
       </div>
       <div className="next-container">
-        <p onClick={() => switchView(checked === 'ss' ? 'ge' : 'ss')}>NEXT</p>
+        <p onClick={() => switchView(checked === 'ss' ? 'ge' : 'ss')}>NEXT ></p>
       </div>
     </div>
   );

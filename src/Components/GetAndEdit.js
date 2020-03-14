@@ -1,12 +1,13 @@
 import React from 'react';
 import GenericForm from './GenericForm';
 import SpecificForm from './SpecificForm';
+import './styles.scss';
 
 export default function GetAndEdit () {
   return (
-    <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', flexDirection: 'column' }}>
-      <GenericForm />
+    <div className="add-edit-forms-container">
       <SpecificForm />
+      <GenericForm />
     </div>
   );
 }

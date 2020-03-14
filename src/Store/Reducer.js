@@ -25,13 +25,13 @@ export default (state = initialState, { type, payload, error, name, age }) => {
     case ACTIONS.GET_USERS_FAILED:
       return { ...state, loading: false };
 
-    // remove generic user.
+    // remove user from generic list.
     case ACTIONS.REMOVE_GENERIC_USER_ACTION:
       const newGeneric = state.genericUsers.filter((user) => user.name !== name);
       const _newSpecific = state.specificUsers.filter((user) => user.name !== name);
       return { ...state, genericUsers: newGeneric, specificUsers: _newSpecific };
 
-    // remove specific user.
+    // remove user from specific list.
     case ACTIONS.REMOVE_SPECIFIC_USER_ACTION:
       const _newSpecificUsers = state.specificUsers.filter((user) => user.name !== name);
       return { ...state, specificUsers: _newSpecificUsers };
@@ -54,12 +54,9 @@ export default (state = initialState, { type, payload, error, name, age }) => {
 
     // add user to specific list
     case ACTIONS.ADD_SPECIFIC_USER_ACTION:
-      let newSpec = [ ...state.specificUsers, { name, age } ];
+      let newSpec = [ ...state.specificUsers, { name, age, fromGeneric: false } ];
       newSpec = newSpec.sort((a, b) => a.age - b.age);
-      return {
-        ...state,
-        specificUsers: newSpec
-      };
+      return { ...state, specificUsers: newSpec };
 
     // send generic list
     case ACTIONS.SEND_DATA_SORTED_BY_NAME_ACTION:

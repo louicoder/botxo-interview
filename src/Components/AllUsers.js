@@ -1,7 +1,21 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeGenericUserAction, removeSpecificUserAction } from '../Store/ActionCreators';
 // import USERS from '../Fixture';
 
-export default function AllUsers ({ users, header }) {
+export default function AllUsers ({ users, header, genericOrSpecific }) {
+  const dispatch = useDispatch();
+
+  const removeUserHandler = (name) => {
+    switch (genericOrSpecific) {
+      case 'generic':
+        return dispatch(removeGenericUserAction(name));
+      case 'specific':
+        return dispatch(removeSpecificUserAction(name));
+      default:
+        return;
+    }
+  };
   return (
     <div>
       <h3>{header}</h3>
@@ -9,10 +23,10 @@ export default function AllUsers ({ users, header }) {
         {users && (
           <ul>
             {users.map(({ name, age }, index) => (
-              <div className="single-name" index={Math.random()}>
+              <div className="single-name" key={index}>
                 <li>
                   {name} ({age})
-                  <span onClick={() => alert(name)}>
+                  <span onClick={() => removeUserHandler(name)}>
                     {' '}
                     <svg style={{ width: '24px', height: '24px' }} viewBox="0 0 24 24">
                       <path

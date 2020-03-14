@@ -16,10 +16,21 @@ export default (state = initialState, { type, payload, error, name, age }) => {
       const sp = [ ...payload ];
       const gn = [ ...payload ];
       const specific = sp.sort((a, b) => a.age - b.age);
-      const generic = sp.sort((a, b) => a.name - b.name);
+      const generic = gn.sort((a, b) => b.name - a.name);
       return { ...state, genericUsers: generic, specificUsers: specific, loading: false };
     case ACTIONS.GET_USERS_FAILED:
       return { ...state, loading: false };
+
+    // remove generic user.
+    case ACTIONS.REMOVE_GENERIC_USER_ACTION:
+      const newGeneric = state.genericUsers.filter((user) => user.name !== name);
+      const _newSpecific = state.specificUsers.filter((user) => user.name !== name);
+      return { ...state, genericUsers: newGeneric, specificUsers: _newSpecific };
+
+    // remove specific user.
+    case ACTIONS.REMOVE_SPECIFIC_USER_ACTION:
+      const _newSpecificUsers = state.specificUsers.filter((user) => user.name !== name);
+      return { ...state, specificUsers: _newSpecificUsers };
 
     // add user to generic list
     case ACTIONS.ADD_GENERIC_USER_ACTION:
@@ -30,10 +41,6 @@ export default (state = initialState, { type, payload, error, name, age }) => {
         specificUsers: newSpecific,
         genericUsers: [ ...state.genericUsers, { name, age } ]
       };
-    case ACTIONS.ADD_GENERIC_USER_SUCCESSFUL:
-      return { ...state, loading: false };
-    case ACTIONS.ADD_GENERIC_USER_FAILED:
-      return { ...state, loading: false };
 
     // add user to specific list
     case ACTIONS.ADD_SPECIFIC_USER_ACTION:
@@ -43,10 +50,6 @@ export default (state = initialState, { type, payload, error, name, age }) => {
         ...state,
         specificUsers: newSpec
       };
-    case ACTIONS.ADD_SPECIFIC_USER_SUCCESSFUL:
-      return { ...state, loading: false };
-    case ACTIONS.ADD_SPECIFIC_USER_FAILED:
-      return { ...state, loading: false };
 
     // send generic list
     case ACTIONS.SEND_GENERIC_USERS_ACTION:

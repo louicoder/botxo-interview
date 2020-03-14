@@ -5,12 +5,13 @@ import './styles.scss';
 import MainButtons from './MainButtons';
 import SecondaryButtons from './SecondaryButtons';
 import * as ACTION_CREATORS from '../Store/ActionCreators';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default () => {
   const [ mode, setMode ] = useState('ge');
   const dispatch = useDispatch();
   const allUsers = useSelector((state) => state.users);
+  const loading = useSelector((state) => state.loading);
 
   useEffect(() => {
     dispatch(ACTION_CREATORS.getAllUsersAction());
@@ -27,7 +28,13 @@ export default () => {
           <div className="first">
             <MainButtons switchView={(mode) => switchViewHandler(mode)} checked={mode} />
           </div>
-          <div className="last">{mode === 'ge' ? <GetAndEdit /> : <ShowAndSend />}</div>
+          {loading ? (
+            <div>
+              <p>Loading, please wait...}</p>
+            </div>
+          ) : (
+            <div className="last">{mode === 'ge' ? <GetAndEdit /> : <ShowAndSend />}</div>
+          )}
         </div>
         <div className="bottom-container">
           <SecondaryButtons switchView={(mode) => switchViewHandler(mode)} checked={mode} />

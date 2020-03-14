@@ -14,8 +14,8 @@ export default function ShowAndSend () {
   const sendDataOrderedByName = () => dispatch(sendGenericUsers(genericUsers));
   return (
     <div>
-      <AllUsers header="All users ordered by name" users={genericUsers} />
-      <AllUsers header="All users ordered by age" users={specificUsers} />
+      <AllUsers header="All users ordered by name" users={genericUsers} genericOrSpecific="generic" />
+      <AllUsers header="All users ordered by age" users={specificUsers} genericOrSpecific="specific" />
       <div className="send-buttons">
         <button onClick={sendDataOrderedByAge}>send data order by age</button>
         <button onClick={sendDataOrderedByName}>send data order by name</button>

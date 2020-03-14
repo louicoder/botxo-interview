@@ -22,16 +22,6 @@ export const addGenericUser = (name, age) => ({
   age
 });
 
-export const addGenericUserSuccessful = (payload) => ({
-  type: ACTIONS.ADD_GENERIC_USER_SUCCESSFUL,
-  payload
-});
-
-export const addGenericUserFailed = (error) => ({
-  type: ACTIONS.ADD_GENERIC_USER_FAILED,
-  error
-});
-
 // add user to specific list
 export const addSpecificUser = (name, age) => ({
   type: ACTIONS.ADD_SPECIFIC_USER_ACTION,
@@ -39,16 +29,18 @@ export const addSpecificUser = (name, age) => ({
   age
 });
 
-export const addSpecificUserSuccessful = (payload) => ({
-  type: ACTIONS.ADD_SPECIFIC_USER_SUCCESSFUL,
-  payload
+// remove generic user from list of generic users
+export const removeGenericUserAction = (name) => ({
+  type: ACTIONS.REMOVE_GENERIC_USER_ACTION,
+  name
 });
 
-export const addSpecificUserFailed = (error) => ({
-  type: ACTIONS.ADD_SPECIFIC_USER_FAILED,
-  error
+// remove specific user from list of specific users
+export const removeSpecificUserAction = (name) => ({
+  type: ACTIONS.REMOVE_SPECIFIC_USER_ACTION,
+  name
 });
-// ---
+
 // send generic list of users
 export const sendGenericUsers = () => ({
   type: ACTIONS.SEND_GENERIC_USERS_ACTION

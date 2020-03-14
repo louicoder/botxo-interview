@@ -5,16 +5,16 @@ import { removeGenericUserAction, removeSpecificUserAction } from '../Store/Acti
 
 export default function AllUsers ({ users, header, genericOrSpecific }) {
   const dispatch = useDispatch();
-  const confirmString = 'Are you sure you want to delete this user from the';
+  const confirmString = (name) => `Are you sure you want to delete ${name} from the`;
 
   const removeUserHandler = (name) => {
     switch (genericOrSpecific) {
       case 'generic':
-        const confirmDelGeneral = window.confirm(`${confirmString} general list`);
+        const confirmDelGeneral = window.confirm(`${confirmString(name)} general list`);
         if (!confirmDelGeneral) return;
         return dispatch(removeGenericUserAction(name));
       case 'specific':
-        const confirmDelSpecific = window.confirm(`${confirmString} pecific list`);
+        const confirmDelSpecific = window.confirm(`${confirmString(name)} pecific list`);
         if (!confirmDelSpecific) return;
         return dispatch(removeSpecificUserAction(name));
       default:

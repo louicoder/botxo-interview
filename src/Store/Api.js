@@ -1,6 +1,9 @@
 import Axios from './Helper';
 import Fixtures from '../Fixture';
 
+// TODO:
+// Fix Cors issue with Axios package.
+
 // get all users.
 export const getAllUsersRequest = async () => {
   // try {
@@ -22,29 +25,34 @@ export const getAllUsersRequest = async () => {
   //     return response.json();
   //   })
   //   .catch((error) => error);
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-      res({ data: Fixtures });
-    }, 5000);
-  });
+  return resolvePromise();
 };
 
 // send generic users list
 export const sendDataSortedByName = async (list) => {
-  try {
-    const response = await Axios.post(list);
-    return response;
-  } catch (error) {
-    return error;
-  }
+  // try {
+  //   const response = await Axios.post(list);
+  //   return response;
+  // } catch (error) {
+  //   return error;
+  // }
+  return resolvePromise();
 };
 
 // send specific users list
 export const sendDataSortedByAge = async (list) => {
-  try {
-    const response = await Axios.post(list);
-    return response;
-  } catch (error) {
-    return error;
-  }
+  // try {
+  //   const response = await Axios.post(list);
+  //   return response;
+  // } catch (error) {
+  //   return error;
+  // }
+  return resolvePromise();
 };
+
+const resolvePromise = () =>
+  new Promise((res, rej) => {
+    setTimeout(() => {
+      res({ data: Fixtures });
+    }, 5000);
+  });

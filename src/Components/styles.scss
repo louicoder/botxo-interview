@@ -123,6 +123,9 @@
   max-height: 200px;
   overflow-y: scroll;
   width: 100%;
+  // border: 1px solid black;
+  box-sizing: border-box;
+  // scrollbar-width: 10px;
 
   ul {
     li {
@@ -145,7 +148,7 @@
 .single-name {
   display: flex;
   // border: 1px solid black;
-  align-items: center;
+  // align-items: center;
 
   &:hover {
     background-color: rgba(0, 0, 0, .105);
@@ -192,12 +195,14 @@
   width: 200px;
   height: 40px;
   font-size: 20px;
+  border: 1px solid rgba(0, 0, 0, .125);
 }
 
 .input-age {
   height: 40px;
   font-size: 20px;
   width: 50px;
+  outline: none;
 }
 
 .blinking {
@@ -223,4 +228,14 @@
   justify-content: center;
   align-self: center;
   width: 100%;
+}
+
+.disabled-name {
+  opacity: .295;
+  // background-color: rgba(0, 0, 0, .095);
+}
+.radio-buttons {
+  &:hover {
+    cursor: pointer;
+  }
 }

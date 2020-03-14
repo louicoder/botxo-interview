@@ -16,7 +16,11 @@ export default (state = initialState, { type, payload, error, name, age }) => {
       const sp = [ ...payload ];
       const gn = [ ...payload ];
       const specific = sp.sort((a, b) => a.age - b.age);
-      const generic = gn.sort((a, b) => b.name - a.name);
+      const generic = gn.sort((a, b) => {
+        const _aname = a.name.toUpperCase();
+        const _bname = b.name.toUpperCase();
+        return _aname < _bname ? -1 : _aname > _bname ? 1 : 0;
+      });
       return { ...state, genericUsers: generic, specificUsers: specific, loading: false };
     case ACTIONS.GET_USERS_FAILED:
       return { ...state, loading: false };
@@ -34,7 +38,7 @@ export default (state = initialState, { type, payload, error, name, age }) => {
 
     // add user to generic list
     case ACTIONS.ADD_GENERIC_USER_ACTION:
-      let newSpecific = [ ...state.specificUsers, { name, age } ];
+      let newSpecific = [ ...state.specificUsers, { name, age, fromGeneric: true } ];
       newSpecific = newSpecific.sort((a, b) => a.age - b.age);
       return {
         ...state,

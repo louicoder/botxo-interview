@@ -6,6 +6,7 @@ import MainButtons from './MainButtons';
 import SecondaryButtons from './SecondaryButtons';
 import * as ACTION_CREATORS from '../Store/ActionCreators';
 import { useSelector, useDispatch } from 'react-redux';
+require('../Assets/spinner.svg');
 
 export default () => {
   const [ mode, setMode ] = useState('ge');
@@ -29,8 +30,8 @@ export default () => {
             <MainButtons switchView={(mode) => switchViewHandler(mode)} checked={mode} />
           </div>
           {loading ? (
-            <div>
-              <p>Loading, please wait...}</p>
+            <div className="loader">
+              <p className="blinking">Loading, please wait...</p>
             </div>
           ) : (
             <div className="last">{mode === 'ge' ? <GetAndEdit /> : <ShowAndSend />}</div>

@@ -199,3 +199,34 @@
   font-size: 20px;
   width: 50px;
 }
+
+.blinking {
+  animation: blinkingText 1s infinite;
+}
+@keyframes blinkingText {
+  0% {
+    color: #000;
+  }
+  25% {
+    color: rgb(151, 110, 110);
+  }
+  // 49% {
+  //   color: rgb(151, 110, 110);
+  // }
+  // 60% {
+  //   color: rgb(201, 183, 183);
+  // }
+  99% {
+    color: rgb(245, 229, 229);
+  }
+  100% {
+    color: #000;
+  }
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 100%;
+}

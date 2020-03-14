@@ -8,9 +8,9 @@ export default function GenericForm () {
       <h3>Generic Data</h3>
       <div>
         <UserComponent onChange={() => null} changeAge={() => null} />
-        <UserComponent onChange={() => null} changeAge={() => null} />
+        {/* <UserComponent onChange={() => null} changeAge={() => null} /> */}
       </div>
-      <button>Add user in generic and specific data</button>
+      <button className="send-button">Add user in generic and specific data</button>
     </div>
   );
 }

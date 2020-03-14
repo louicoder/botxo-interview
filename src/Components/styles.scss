@@ -124,13 +124,45 @@
 .all-users-list-container {
   max-height: 300px;
   overflow-y: scroll;
+  width: 100%;
 
   ul {
     li {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
       &:hover {
-        background-color: rgba(0, 0, 0, .25);
+        // background-color: rgba(0, 0, 0, .25);
         cursor: pointer;
+      }
+      span {
+        &:hover {
+          opacity: .35;
+        }
       }
     }
   }
+}
+
+.single-name {
+  display: flex;
+  // border: 1px solid black;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .105);
+  }
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.send-button {
+  padding: 10px;
+  font-size: 15px;
+  margin: 10px 0px;
+  width: 65%;
+  border-radius: 5px;
+  outline: none;
 }

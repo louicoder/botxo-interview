@@ -34,13 +34,12 @@ describe('<Main /> component', () => {
   });
 
   it('switches from one view to another', () => {
-    const switchView = wrapper.find(MainButtons).prop('switchView');
-    const button = wrapper.find(MainButtons).props();
-    // console.log('debug', button);
-    // console.log('wrapper', mainButtons);
-    // const switchViewHandler = jest.fn();
-    // const shal = mount(<Main />);
-    // const spy = jest.spyOn(wrapper, 'switchViewHandler');
-    // console.log('instance', spy);
+    // const switchViewHandler = jest.fn(() => {});
+    // const newProps = { switchView: jest.fn(), checked: 'ge' };
+    // const mainButtons = shallow(<MainButtons {...newProps} switchViewHandler={switchViewHandler} />);
+    // const spy = jest.spyOn(mainButtons, 'switchViewHandler');
+    // // // const spy = jest.spyOn(mainButtons.props(), 'switchView')();
+    // // const btn = mainButtons.find('button#ge-button').simulate('click');
+    // console.log('mainButtons', spy);
   });
 });

@@ -54,5 +54,5 @@ const resolvePromise = () =>
   new Promise((res, rej) => {
     setTimeout(() => {
       res({ data: Fixtures });
-    }, 1000);
+    }, 5000);
   });

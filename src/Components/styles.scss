@@ -109,6 +109,12 @@
   width: 100%;
   // border: 1px solid black;
   justify-content: space-evenly;
+
+  button {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .users-container {
@@ -205,6 +211,7 @@
   height: 40px;
   font-size: 20px;
   border: 1px solid rgba(0, 0, 0, .125);
+  padding-left: 10px;
 }
 
 .input-age {

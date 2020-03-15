@@ -1,17 +1,23 @@
 import React from 'react';
 import './styles.scss';
 
-export default function UserComponent ({ changeName, changeAge }) {
+export default function UserComponent ({ changeName, changeAge, name, age }) {
   return (
     <div className="users-container">
       <div className="name-and-age">
         <div>
           <p>Name</p>
-          <input type="text" onChange={(e) => changeName(e)} className="input-field" />
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => changeName(e)}
+            className="input-field"
+            placeholder="Enter name"
+          />
         </div>
         <div>
           <p>Age</p>
-          <input type="number" onChange={(e) => changeAge(e)} className="input-age" />
+          <input type="number" value={age} onChange={(e) => changeAge(e)} className="input-age" />
         </div>
       </div>
       {/* <div>

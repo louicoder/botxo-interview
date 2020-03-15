@@ -12,6 +12,8 @@ export default function GenericForm () {
   const addToGenericList = () => {
     if (!name || !age) return alert(`${!name ? 'name' : 'age'} is missing`);
     dispatch(addGenericUser(name, age));
+    setName('');
+    setAge(0);
   };
   return (
     <div className="generic-form-container">

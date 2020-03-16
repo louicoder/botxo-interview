@@ -13,11 +13,12 @@ export default function UserComponent ({ changeName, changeAge, name, age }) {
             onChange={(e) => changeName(e)}
             className="input-field"
             placeholder="Enter name"
+            id="name-input"
           />
         </div>
         <div>
           <p>Age</p>
-          <input type="number" value={age} onChange={(e) => changeAge(e)} className="input-age" />
+          <input type="number" value={age} onChange={(e) => changeAge(e)} className="input-age" id="age-input" />
         </div>
       </div>
       {/* <div>

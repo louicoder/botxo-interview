@@ -2,9 +2,9 @@ import * as ACTIONS from './Actions';
 // import { combineReducers } from 'redux';
 
 const initialState = {
-  // users: [],
   specificUsers: [],
-  genericUsers: []
+  genericUsers: [],
+  loading: false
 };
 
 export default (state = initialState, { type, payload, error, name, age }) => {

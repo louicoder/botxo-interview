@@ -101,11 +101,23 @@ describe('<AllUsers /> component', () => {
   });
 
   it('should fall back to default case when genericOrSpecific is undefined', () => {
-    props = { ...props, genericOrSpecific: 'human' };
+    props = { ...props, genericOrSpecific: undefined };
     wrapper = mount(
       <Provider store={store}>
         <AllUsers {...props} />
       </Provider>
     );
+  });
+
+  it('should not execute removeUserHandler function when fronGeneric is false', () => {
+    USERS[0] = { ...USERS[0], fromGeneric: true };
+    props = { ...props, USERS, genericOrSpecific: 'specific', header: 'specific' };
+    wrapper = mount(
+      <Provider store={store}>
+        <AllUsers {...props} />
+      </Provider>
+    );
+    wrapper.find('li').first().find('span').simulate('click', 'Santiago');
+    expect(store.getActions()).toEqual([]);
   });
 });

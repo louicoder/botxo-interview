@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Main /> component Render without crashing 1`] = `ShallowWrapper {}`;
+
+exports[`<UserComponent /> component Render without crashing 1`] = `ShallowWrapper {}`;

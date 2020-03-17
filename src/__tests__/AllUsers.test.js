@@ -100,16 +100,7 @@ describe('<AllUsers /> component', () => {
     expect(store.getActions()).toEqual([ { type: 'REMOVE_SPECIFIC_USER_ACTION', name: 'Santiago' } ]);
   });
 
-  it('should fall back to default case when genericOrSpecific is undefined', () => {
-    props = { ...props, genericOrSpecific: undefined };
-    wrapper = mount(
-      <Provider store={store}>
-        <AllUsers {...props} />
-      </Provider>
-    );
-  });
-
-  it('should not execute removeUserHandler function when fronGeneric is false', () => {
+  it('should not execute REMOVE_SPECIFIC_USER_ACTION when fromGeneric is true', () => {
     USERS[0] = { ...USERS[0], fromGeneric: true };
     props = { ...props, USERS, genericOrSpecific: 'specific', header: 'specific' };
     wrapper = mount(

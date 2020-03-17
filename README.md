@@ -1,7 +1,8 @@
 ## botxo-interview
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-) 
+[![CircleCI](https://circleci.com/gh/louiCoder/botxo-interview.svg?style=svg)](https://circleci.com/gh/louiCoder/botxo-interview)
+<!-- END CIRCLE CI BADGE -->
 An application for Botxo interview test
 
 ##### Live demo
